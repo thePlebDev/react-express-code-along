@@ -1,0 +1,49 @@
+THE LOCK FILE:
+- the goal of the file is to keep track of the exact version of every package that is installed so that a product is 100% reproducible in
+the same way even if packages are updated by their maintainers
+- the lock file sets the currently installed version of each package in stone and npm will use those exact versions when running npm install
+- the lock file needs to be commited to your Git repository so it can be fetched by other people, if the project is public or you have
+collaborators or if you use Git as a source for deployments.
+
+
+
+- the app.use seems to be used for setting up the correct middleware function
+
+- the app.get() has to do with routing and this method deals with the get method.
+
+-so now that we have backend up and render we need to set up a "proxy" that allows the front end to make requests to the backend
+
+PROXY SERVER:
+-in general a proxy server can introduce additional layers in our communication. We use proxies because browser resrtict requests
+which are not from the same origin as that of the hosted UI, this provents hackers from injecting code into the application via
+ads or plugins to steal our credentials or other sensitive information
+
+
+CORS:
+-cross origin resource sharing is a mechanism that uses additional Http headers to tell browsers to give a web application running
+at one origin, access to selected resources from a different origin
+
+
+-so I need to figure out async and the how the fetch api works
+
+
+TRYING TO REALLY UNDERSTAND ASYNCRONITY IN PROGRAMMING:
+- ya async means that things can happen independently of the main program flow. javascript is synchronous by nature. meaning that lines
+of code are executed in series one after the other
+callbacks: just a simple function that is passed as a value to another function, and will only be executed when the event happens
+- with node the first parameter in any callback function is the error object. callbacks get complicated quickly.
+
+PROMISES:
+-it is a proxy value that will eventually be returned. understanding how promises work are vital to understand how asyn and await work
+- once a promise is called it will have a pending state
+- the calling function will continue to execute
+- when you wan to call a function with await the calling code will stop until the promise is resolved or rejected, in order for this
+to work, you need the calling funciton to be defined as being async
+
+- adding async to any function will make it return a promise
+
+- so in our application we have a form with an onSubmit funciton that when submitted calls a function that preventsDefault.
+it makes a fetch request to our server for a post and then updates the state with the information that was posted.
+- then we have the componentDidMount() lifecycle method being called, it will call an api function.
+
+-so I guess what I create is the API and then make it talk to the backend and the frontend   
